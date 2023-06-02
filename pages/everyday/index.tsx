@@ -1,3 +1,4 @@
+import BackButton from "@/src/components/BackButton";
 import PostServices from "@/src/services/post";
 import { IPost } from "@/src/types/post";
 import Link from "next/link";
@@ -9,12 +10,22 @@ interface Props {
 
 const EverydayPage: NextPage<Props> = ({ posts = [] }) => {
   return (
-    <div className="container mx-auto mt-10">
-      <h1 className="text-4xl font-bold">Everyday</h1>
-      <p>Writing about what I learned everyday (but not everyday 😎)</p>
-      <div className="mt-10">
+    <div>
+      <BackButton />
+      <h1 className="text-4xl font-medium">📕 Everyday</h1>
+      <p className="text-xl text-grey font-light mt-5">
+        Writing about what I learned everyday (but not everyday 😎)
+      </p>
+      <div className="mt-12">
+        <p className="text-neutral font-light mb-2">Posts:</p>
         {posts.map((post) => (
-          <Link href={`/everyday/${post.slug}`} key={post.title}>
+          <Link
+            href={`/everyday/${post.slug}`}
+            key={post.slug}
+            className="text-lg hover:text-neutral"
+          >
+            <span className="text-grey font-light">{post.date}</span>
+            &nbsp;-&nbsp;
             {post.title}
           </Link>
         ))}

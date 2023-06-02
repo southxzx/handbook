@@ -2,16 +2,15 @@ import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
 import { generateSlug } from "../utils/common";
-
-const postsDirectory = join(process.cwd(), "_posts");
+const postsDirectory = join(process.cwd(), "_posts/everyday");
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
 export function getPostBySlug(slug: string, fields: string[]) {
-  const title = slug.replace(/\.md$/, "");
-  const fullPath = join(postsDirectory, `${title}.md`);
+  const formattedSlug = slug.replace(/\.md$/, "");
+  const fullPath = join(postsDirectory, `${formattedSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
@@ -22,11 +21,8 @@ export function getPostBySlug(slug: string, fields: string[]) {
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
-    if (field === "title") {
-      items[field] = title;
-    }
     if (field === "slug") {
-      items[field] = generateSlug(title);
+      items[field] = generateSlug(formattedSlug);
     }
     if (field === "content") {
       items[field] = content;
@@ -46,7 +42,13 @@ const PostServices = {
     return posts;
   },
   getPostBySlug: (slug: string) => {
-    const post = getPostBySlug(slug, ["title", "slug", "content"]);
+    const post = getPostBySlug(slug, [
+      "title",
+      "slug",
+      "content",
+      "date",
+      "tags",
+    ]);
     return post;
   },
 };
