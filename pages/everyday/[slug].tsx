@@ -35,7 +35,10 @@ const EverydayDetailPage: NextPage<Props> = ({ post, content }) => {
           />
           <div className="flex items-center mt-5">
             {tags?.map((tag) => (
-              <p className="text-grey text-sm font-light mr-2 bg-extraLight px-1 rounded">
+              <p
+                key={tag}
+                className="text-grey text-sm font-light mr-2 bg-extraLight px-1 rounded"
+              >
                 #{tag}
               </p>
             ))}

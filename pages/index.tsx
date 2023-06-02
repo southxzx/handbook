@@ -80,7 +80,7 @@ export default function Index(props: Props) {
       </div>
 
       <p className="text-xl text-neutral font-light mt-5">
-        My name is Nam, I'm glad that you found me here.
+        My name is Nam, I&apos;m glad that you found me here.
       </p>
       <BlinkingTextCursor />
 
