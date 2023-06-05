@@ -19,15 +19,16 @@ const EverydayPage: NextPage<Props> = ({ posts = [] }) => {
       <div className="mt-12">
         <p className="text-neutral font-light mb-2">Posts:</p>
         {posts.map((post) => (
-          <Link
-            href={`/everyday/${post.slug}`}
-            key={post.slug}
-            className="text-lg hover:text-neutral"
-          >
-            <span className="text-grey font-light">{post.date}</span>
-            &nbsp;-&nbsp;
-            {post.title}
-          </Link>
+          <div key={post.slug}>
+            <Link
+              href={`/everyday/${post.slug}`}
+              className="text-lg hover:text-neutral"
+            >
+              <span className="text-grey font-light">{post.date}</span>
+              &nbsp;-&nbsp;
+              {post.title}
+            </Link>
+          </div>
         ))}
       </div>
     </div>

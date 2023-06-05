@@ -5,7 +5,11 @@ import { generateSlug } from "../utils/common";
 const postsDirectory = join(process.cwd(), "_posts/everyday");
 
 export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
+  const direntList = fs.readdirSync(postsDirectory, { withFileTypes: true });
+  const filesNames = direntList
+    .filter((dirent) => dirent.isFile())
+    .map((dirent) => dirent.name);
+  return filesNames;
 }
 
 export function getPostBySlug(slug: string, fields: string[]) {

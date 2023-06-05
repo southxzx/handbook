@@ -1,19 +1,19 @@
 import { AppProps } from "next/app";
-import { Roboto } from "next/font/google";
+import { Figtree } from "next/font/google";
 
 import "../styles/globals.css";
 import "../styles/blinkingTextCursor.css";
 
 import Layout from "@/src/components/Layout";
 
-const inter = Roboto({
+const figtree = Figtree({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <main className={inter.className}>
+    <main className={figtree.className}>
       {/* <div className="min-h-screen flex flex-col justify-between">
         <div className="container mx-auto pt-10">
           <div className="max-w-screen-sm mx-auto">

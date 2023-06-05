@@ -4,7 +4,7 @@
 
 :root {
   --color: #353535;
-  --bg: #f0f2f6;
+  /* --bg: #f0f2f6; */
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -13,6 +13,58 @@
     --color: #f0f2f6;
   }
 } */
+
+h1 {
+  font-size: 56px;
+  line-height: 64px;
+}
+h2 {
+  font-size: 28px;
+  line-height: 44px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-size: 14px;
+  line-height: 24px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  border-radius: 4px;
+}
+
+.content-detail p,
+ul,
+li {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.content-detail ul,
+li {
+  list-style-type: disc;
+  margin-left: 24px;
+}
+
+.content-detail a {
+  color: #7a7a7a;
+  text-decoration: underline;
+}
+.content-detail strong {
+  font-weight: 500;
+}
 
 * {
   box-sizing: border-box;
