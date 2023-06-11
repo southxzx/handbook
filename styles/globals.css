@@ -65,6 +65,10 @@ li {
 .content-detail strong {
   font-weight: 500;
 }
+.content-detail p img {
+  margin: 0 auto;
+  max-width: 70%;
+}
 
 * {
   box-sizing: border-box;
