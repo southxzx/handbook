@@ -16,7 +16,7 @@ Refers to the process of an event traveling through the DOM tree.
 
 Event Propagation is the order in which event handlers are called when an event occurs on a webpage.
 
-![Event Propagation](./_meta/event-propagation.png)
+![Event Propagation](_meta/event-propagation.png)
 
 There are 3 phases of event flow in the DOM: capturing -> target -> bubbling phase.
 
