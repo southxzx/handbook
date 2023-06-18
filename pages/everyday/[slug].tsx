@@ -1,13 +1,15 @@
 import hljs from "highlight.js";
 
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
+
 import BackButton from "@/src/components/BackButton";
 import PostServices from "@/src/services/post";
 import { IPost } from "@/src/types/post";
 import markDownToHtml from "@/src/utils/markDownToHtml";
-import { GetStaticProps, NextPage } from "next";
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { CLIENT_URL } from "@/src/utils/constant";
 
 interface Props {
   post: IPost;
@@ -16,7 +18,11 @@ interface Props {
 
 const EverydayDetailPage: NextPage<Props> = ({ post, content }) => {
   const router = useRouter();
-  const { title, date, tags = [] } = post;
+  const { title, date, tags = [], slug } = post;
+
+  const excerpt =
+    content.substring(0, 100).replace(/(<([^>]+)>)/gi, "") + "...";
+  const url = `${CLIENT_URL}/everyday/${slug}`;
 
   useEffect(() => {
     hljs.highlightAll();
@@ -33,6 +39,11 @@ const EverydayDetailPage: NextPage<Props> = ({ post, content }) => {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/harmonic16-light.min.css"
         />
+        <title>{date + " - " + title}</title>
+        <meta name="description" content={excerpt}></meta>
+        <meta property="og:title" content={date + " - " + title}></meta>
+        <meta property="og:description" content={excerpt}></meta>
+        <meta property="og:url" content={url}></meta>
       </Head>
       <div className="content-detail mb-10">
         {router.isFallback ? (

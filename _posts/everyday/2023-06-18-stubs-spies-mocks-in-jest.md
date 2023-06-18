@@ -6,7 +6,7 @@ date: 2023/06/18
 
 Both are test doubles that stand-ins for when developers don't want to use the real thing during test.
 
-## Stubs/Spies/Mocks
+## 1. Stubs/Spies/Mocks
 
 A stub is a type of test double that replaces a specific function or method with a simplified implementation. In Jest they are instantiated with `jest.fn()` and used with `expect(stub).<assertionName>`
 
@@ -53,7 +53,7 @@ const result = myModule.getData();
 expect(result).toEqual({ name: 'Jane', age: 25 });
 ```
 
-## Behavior vs State testing
+## 2. Behavior vs State testing
 
 ### Behavior:
 
@@ -64,3 +64,7 @@ Function testing (black-box) -> Focus on verifying the behavior of your code. Yo
 Unit testing (white-box) -> Focus on testing the internal state or implementation details of your code. (Like a counter app that should increase the counter value when count function was called)
 
 Mainly the distinction between them comes from the testing approach rather than specific Jest functions.
+
+Refs:
+
+[https://codewithhugo.com/jest-fn-spyon-stub-mock/](https://codewithhugo.com/jest-fn-spyon-stub-mock/)

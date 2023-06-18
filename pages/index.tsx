@@ -1,4 +1,6 @@
 import BlinkingTextCursor from "@/src/components/BlinkingTextCursor";
+import { CLIENT_URL } from "@/src/utils/constant";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { GetStaticProps } from "next/types";
@@ -26,7 +28,7 @@ export default function Index(props: Props) {
     {
       key: "github",
       text: "Github",
-      href: "",
+      href: "https://github.com/southxzx",
       icon: (
         <Image
           src="/icons/social/github.svg"
@@ -39,7 +41,7 @@ export default function Index(props: Props) {
     {
       key: "linkedin",
       text: "Linkedin",
-      href: "",
+      href: "https://www.linkedin.com/in/southxzx/",
       icon: (
         <Image
           src="/icons/social/linkedin.svg"
@@ -49,60 +51,79 @@ export default function Index(props: Props) {
         />
       ),
     },
-    {
-      key: "twitter",
-      text: "Twitter",
-      href: "",
-      icon: (
-        <Image
-          src="/icons/social/twitter.svg"
-          width={24}
-          height={24}
-          alt="Twitter"
-        />
-      ),
-    },
+    // {
+    //   key: "twitter",
+    //   text: "Twitter",
+    //   href: "",
+    //   icon: (
+    //     <Image
+    //       src="/icons/social/twitter.svg"
+    //       width={24}
+    //       height={24}
+    //       alt="Twitter"
+    //     />
+    //   ),
+    // },
   ];
 
   return (
-    <div>
-      <div className="flex items-center">
-        <Image
-          src="/images/avt_2023.jpg"
-          width={48}
-          height={48}
-          alt="profile-picture"
-          className="rounded-full mr-3"
-        />
-        <div>
-          <h1 className="text-4xl font-medium">southxzx</h1>
+    <>
+      <Head>
+        <title>Handbook</title>
+        <meta
+          name="description"
+          content="My name is Nam, I'm glad that you found me here."
+        ></meta>
+        <meta property="og:title" content="Handbook"></meta>
+        <meta
+          property="og:description"
+          content="My name is Nam, I'm glad that you found me here."
+        ></meta>
+        <meta property="og:url" content={CLIENT_URL}></meta>
+      </Head>
+      <div>
+        <div className="flex items-center">
+          <Image
+            src="/images/avt_2023.jpg"
+            width={48}
+            height={48}
+            alt="profile-picture"
+            className="rounded-full mr-3"
+          />
+          <div>
+            <h1 className="text-4xl font-medium">southxzx</h1>
+          </div>
+        </div>
+
+        <p className="text-xl text-neutral font-light mt-5">
+          My name is Nam, I&apos;m glad that you found me here.
+        </p>
+        <BlinkingTextCursor />
+
+        <div className="mt-10">
+          {sections.map((section) => (
+            <div key={section.key} className="mb-3">
+              <Link href={section.href}>
+                <p className="text-lg hover:text-neutral">{section.text}</p>
+                <p className="ml-6 text-grey font-light">
+                  {section.description}
+                </p>
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 flex items-center">
+          {socials.map((social) => (
+            <div className="mr-2" key={social.key}>
+              <Link href={social.href} target="_blank" rel="nofollow">
+                {social.icon}
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
-
-      <p className="text-xl text-neutral font-light mt-5">
-        My name is Nam, I&apos;m glad that you found me here.
-      </p>
-      <BlinkingTextCursor />
-
-      <div className="mt-10">
-        {sections.map((section) => (
-          <div key={section.key} className="mb-3">
-            <Link href={section.href}>
-              <p className="text-lg hover:text-neutral">{section.text}</p>
-              <p className="ml-6 text-grey font-light">{section.description}</p>
-            </Link>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-10 flex items-center">
-        {socials.map((social) => (
-          <div className="mr-2" key={social.key}>
-            <Link href={social.href}>{social.icon}</Link>
-          </div>
-        ))}
-      </div>
-    </div>
+    </>
   );
 }
 
