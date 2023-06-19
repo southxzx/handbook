@@ -43,6 +43,11 @@ pre {
   border-radius: 4px;
 }
 
+code {
+  background: #f0f2f6;
+  padding: 4px 8px;
+}
+
 .content-detail p,
 ul,
 li {
@@ -61,6 +66,8 @@ li {
 .content-detail a {
   color: #7a7a7a;
   text-decoration: underline;
+  font-size: 16px;
+  font-weight: 400;
 }
 .content-detail strong {
   font-weight: 500;

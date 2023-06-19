@@ -13,6 +13,7 @@ module.exports = {
       extraLight: "#e0e0e0",
       light: "#f0f2f6",
       neutral: "#54595f",
+      codeBg: "#f0f2f6",
     },
     extend: {
       backgroundImage: {

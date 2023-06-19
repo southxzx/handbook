@@ -16,12 +16,19 @@ export default function Index(props: Props) {
         "Writing about what I learned everyday (but not everyday 😎)",
       href: "/everyday",
     },
-    // {
-    //   key: "about",
-    //   text: "👨🏼‍💻 About",
-    //   description: "Get to know me",
-    //   href: "/about",
-    // },
+    {
+      key: "worlds-within-frames",
+      text: "📸 Worlds Within Frames",
+      description:
+        "Posting some pictures that I took, mostly about my life in Vietnam (coming soon)",
+      href: "",
+    },
+    {
+      key: "about",
+      text: "👨🏼‍💻 About",
+      description: "Get to know me",
+      href: "/about",
+    },
   ];
 
   const socials = [

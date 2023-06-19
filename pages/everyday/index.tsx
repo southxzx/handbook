@@ -33,7 +33,7 @@ const EverydayPage: NextPage<Props> = ({ posts = [] }) => {
           Writing about what I learned everyday (but not everyday 😎)
         </p>
         <div className="mt-12">
-          <p className="text-neutral font-light mb-2">Posts:</p>
+          <p className="text-neutral font-light mb-2">All posts:</p>
           {posts.map((post) => (
             <div key={post.slug}>
               <Link
