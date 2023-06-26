@@ -13,7 +13,7 @@ export default function Index(props: Props) {
       key: "everyday",
       text: "📕 Everyday Learning",
       description:
-        "Writing about what I learned everyday (but not everyday 😎)",
+        "Documenting my daily learning experiences (though not on a daily basis 😎)",
       href: "/everyday",
     },
     {

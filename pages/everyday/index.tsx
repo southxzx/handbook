@@ -30,7 +30,8 @@ const EverydayPage: NextPage<Props> = ({ posts = [] }) => {
         <BackButton />
         <h1 className="text-4xl font-medium">📕 Everyday</h1>
         <p className="text-xl text-grey font-light mt-5">
-          Writing about what I learned everyday (but not everyday 😎)
+          Documenting my daily learning experiences<br/>(though not on a daily basis
+          😎)
         </p>
         <div className="mt-12">
           <p className="text-neutral font-light mb-2">All posts:</p>
