@@ -4,6 +4,19 @@
 
 :root {
   --color: #353535;
+  --lightGrey: #bfbfbf;
+  /* --color-gradient: linear-gradient(45deg, var(--lightGrey), var(--color)); */
+  --color-gradient-1: #353535;
+  /* --color-gradient-2: #54595f; */
+  --color-gradient-3: #bfbfbf;
+  --color-gradient: linear-gradient(
+    45deg,
+    var(--color-gradient-1),
+    var(--color-gradient-3),
+    var(--color-gradient-1),
+    var(--color-gradient-3)
+  );
+  --gradient-animation: 10s linear infinite alternate;
   /* --bg: #f0f2f6; */
 }
 
@@ -88,4 +101,25 @@ body {
   background: var(--bg);
   margin: 0;
   padding: 0;
+}
+
+.colorized {
+  background: var(--color-gradient);
+  animation: gradient var(--gradient-animation);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 700% 700%;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

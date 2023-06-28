@@ -98,7 +98,7 @@ export default function Index(props: Props) {
             className="rounded-full mr-3"
           />
           <div>
-            <h1 className="text-4xl font-medium">southxzx</h1>
+            <h1 className="text-4xl font-medium colorized">southxzx</h1>
           </div>
         </div>
 
